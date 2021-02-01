@@ -3,8 +3,6 @@ import React, { useState } from 'react';
 import { 
   Feather, 
   MaterialCommunityIcons, 
-  FontAwesome, 
-  AntDesign,
 } from '@expo/vector-icons';
 
 import { Switch } from 'react-native';
@@ -19,27 +17,18 @@ import {
   Bold,
   EyeButton,
   Info,
-  Actions,
-  Action,
-  ActionLabel,
   UseBalance,
   UseBalanceTitle,
   PaymentMethods,
   PaymentMethodsTitle,
-  Card,
-  CardBody,
-  CardDetails,
-  CardTitle,
-  CardInfo,
-  Img,
-  AddButton,
-  AddLabel,
   UseTicketContainer,
   UseTicketButton,
   UseTicketLabel,
 } from "./styles";
 
-import creditCard from '../../assets/img/credit-card.png';
+
+import WActions from '../../components/WActions/index.js';
+import WCard from '../../components/WCard';
 
 export default function Wallet(){
   const [isVisible, setIsVisible] = useState(true);
@@ -82,25 +71,8 @@ export default function Wallet(){
             Seu saldo esta rendendo 100% do CDI
           </Info>
 
-          <Actions>
+          <WActions></WActions>
 
-            <Action>
-              <MaterialCommunityIcons 
-                name="cash" 
-                size={28} 
-                color="#fff" />
-              <ActionLabel>Adicionar</ActionLabel>
-            </Action>
-
-            <Action>
-              <FontAwesome 
-                name="bank" 
-                size={20} 
-                color="#fff" />
-              <ActionLabel>Retirar</ActionLabel>
-            </Action>
-
-          </Actions>
         </HeaderContainer>
       </Header>
 
@@ -120,33 +92,7 @@ export default function Wallet(){
         </PaymentMethodsTitle>
       </PaymentMethods>
 
-      <Card>
-        <CardBody>
-          <CardDetails>
-            <CardTitle>
-              Cadastre seu cartão de crédito
-            </CardTitle>
-            <CardInfo>
-              Cadastre um cartão de crédito 
-              para poder fazer pagamentos mesmo 
-              quando não tiver saldo no seu PicPay
-            </CardInfo>
-          </CardDetails>
-          <Img source={creditCard} resizeMode="contain" />
-        </CardBody>
-
-        <AddButton>
-          <AntDesign 
-            name="pluscircleo" 
-            size={30} 
-            color="#0DB060" 
-          />
-          <AddLabel>
-            Adicionar cartão de crédito
-          </AddLabel>
-        </AddButton>
-
-      </Card>
+      <WCard></WCard>
 
       <UseTicketContainer>
         <UseTicketButton>
